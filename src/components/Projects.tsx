@@ -88,15 +88,16 @@ export function Projects() {
                   <div className="mt-2.5 overflow-hidden rounded-md border border-zinc-200 bg-white dark:border-zinc-800/90 dark:bg-zinc-950/85">
                     <div className="flex items-center justify-between border-b border-zinc-200/80 bg-zinc-100/60 px-3 py-1 font-mono text-[10px] text-zinc-500 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:text-zinc-400">
                       <span className="flex items-center gap-1.5">
-                        <span className="text-cyan-600 dark:text-cyan-400">&gt;_</span>
-                        <span>{project.id}.manifest</span>
+                        <span className="hidden sm:inline text-cyan-600 dark:text-cyan-400">&gt;_</span>
+                        <span className="hidden sm:inline">{project.id}.manifest</span>
+                        <span className="sm:hidden font-sans font-medium text-zinc-700 dark:text-zinc-300">Architecture Spec</span>
                         {project.status === 'Active' ? (
                           <span className="rounded bg-cyan-100/80 px-1 py-0.2 text-[9px] font-medium text-cyan-800 dark:bg-cyan-500/15 dark:text-cyan-300">
                             ACTIVE_DEV
                           </span>
                         ) : null}
                       </span>
-                      <div className="flex items-center gap-1">
+                      <div className="hidden sm:flex items-center gap-1">
                         <span className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
                         <span className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
                         <span className="h-1.5 w-1.5 rounded-full bg-cyan-500/70 dark:bg-cyan-400/70" />

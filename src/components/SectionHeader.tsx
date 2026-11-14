@@ -18,7 +18,7 @@ export function SectionHeader({ index, title, subtitle, meta }: SectionHeaderPro
           </h2>
         </div>
         {meta ? (
-          <span className="font-mono text-xs text-zinc-500">{meta}</span>
+          <span className="hidden font-mono text-xs text-zinc-500 sm:inline">{meta}</span>
         ) : null}
       </div>
       {subtitle ? (

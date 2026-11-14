@@ -128,7 +128,8 @@ export function Hero({ onDownloadCv }: HeroProps) {
             <div className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
               <div className="flex items-center gap-2 font-mono text-xs text-zinc-800 dark:text-zinc-200">
                 <Terminal className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" />
-                <span>lifecycle.spec</span>
+                <span className="hidden sm:inline">lifecycle.spec</span>
+                <span className="font-sans font-medium text-xs sm:hidden">Dual-Frontier Architecture</span>
               </div>
               <span className="rounded border border-cyan-600/25 bg-cyan-50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan-700 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
                 Dual-Frontier
@@ -154,7 +155,7 @@ export function Hero({ onDownloadCv }: HeroProps) {
               ))}
             </div>
 
-            <div className="mt-4 flex items-center justify-between border-t border-zinc-200 pt-3 font-mono text-[11px] text-zinc-500 dark:border-zinc-800">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-1.5 border-t border-zinc-200 pt-3 font-mono text-[11px] text-zinc-500 dark:border-zinc-800">
               <span>STATUS: OPEN_TO_WORK</span>
               <span className="text-cyan-700 dark:text-cyan-400">FOCUS: MODELS + EVALS</span>
             </div>

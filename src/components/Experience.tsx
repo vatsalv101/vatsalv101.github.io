@@ -59,7 +59,7 @@ export function Experience() {
           })}
         </div>
 
-        <span className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-500">
+        <span className="hidden items-center gap-1.5 font-mono text-xs text-zinc-500 sm:inline-flex">
           <Terminal className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" />
           <span>
             experience.log · {String(visibleItems.length).padStart(2, '0')} /{' '}
