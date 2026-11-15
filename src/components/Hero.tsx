@@ -6,16 +6,26 @@ interface HeroProps {
   onDownloadCv: () => void;
 }
 
-const LIFECYCLE_LAYERS = [
+const EVIDENCE_MILESTONES = [
   {
-    layer: '01 · MODELING & ALIGNMENT',
-    title: 'Model Internals & Audits',
-    detail: 'Scratch PyTorch · LoRA / PEFT · Reasoning & Safety Audits',
+    layer: '01 · FROM-SCRATCH REPRODUCTIONS',
+    title: '18 Research Papers in PyTorch',
+    detail: 'AdamW → Transformer → RoPE → GPT-2 → LoRA → ViT → Mamba',
   },
   {
-    layer: '02 · APPLIED & SAFE SYSTEMS',
-    title: 'Evaluated RAG & Cloud APIs',
-    detail: 'Two-Stage RAG · FastAPI & Qdrant · RAGAS · JWT RBAC',
+    layer: '02 · SATELLITE ML RESEARCH',
+    title: 'Space Applications Centre (ISRO)',
+    detail: 'NavIC GNSS multipath detection PoC via PCA, K-Means & XGBoost',
+  },
+  {
+    layer: '03 · APPLIED & EVALUATED RAG',
+    title: 'Multilingual EU AI Act Assistant',
+    detail: 'Two-stage retrieval · 94% RAGAS faithfulness · 100% abstention',
+  },
+  {
+    layer: '04 · SECURE SYSTEMS',
+    title: 'Tenant-Isolated Vector Search',
+    detail: 'Cryptographic JWT verification & strict Qdrant pre-filtering',
   },
 ];
 
@@ -27,7 +37,7 @@ export function Hero({ onDownloadCv }: HeroProps) {
     >
       <div
         aria-hidden="true"
-        className="bg-coordinate-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_35%,transparent_80%)]"
+        className="bg-coordinate-grid pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_top,black_35%,transparent_80%)]"
       />
 
       <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
@@ -55,9 +65,9 @@ export function Hero({ onDownloadCv }: HeroProps) {
             </div>
 
             <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-              AI Engineering across{' '}
-              <span className="text-cyan-700 dark:text-cyan-400">Model Internals</span> and{' '}
-              <span className="text-zinc-900 dark:text-zinc-100">Applied Safe Systems</span>.
+              Building AI systems from{' '}
+              <span className="text-cyan-700 dark:text-cyan-400">model internals</span> to{' '}
+              <span className="text-zinc-900 dark:text-zinc-100">reliable real-world applications</span>.
             </h1>
 
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 sm:text-base">
@@ -122,33 +132,33 @@ export function Hero({ onDownloadCv }: HeroProps) {
           </div>
 
           <aside
-            aria-label="Dual-frontier architecture overview"
+            aria-label="Verified evidence and technical milestones"
             className="rounded-lg border border-zinc-200 bg-zinc-50/80 p-5 dark:border-zinc-800 dark:bg-zinc-900/45 lg:col-span-4"
           >
             <div className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
               <div className="flex items-center gap-2 font-mono text-xs text-zinc-800 dark:text-zinc-200">
                 <Terminal className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" />
-                <span className="hidden sm:inline">lifecycle.spec</span>
-                <span className="font-sans font-medium text-xs sm:hidden">Dual-Frontier Architecture</span>
+                <span className="hidden sm:inline">track_record.spec</span>
+                <span className="font-sans font-medium text-xs sm:hidden">Track Record</span>
               </div>
               <span className="rounded border border-cyan-600/25 bg-cyan-50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan-700 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
-                Dual-Frontier
+                Verified Evidence
               </span>
             </div>
 
-            <div className="mt-4 space-y-3">
-              {LIFECYCLE_LAYERS.map((item) => (
+            <div className="mt-4 space-y-2.5">
+              {EVIDENCE_MILESTONES.map((item) => (
                 <div
                   key={item.layer}
-                  className="rounded-md border border-zinc-200 bg-white p-3.5 dark:border-zinc-800/90 dark:bg-zinc-950/70"
+                  className="rounded-md border border-zinc-200 bg-white p-3 dark:border-zinc-800/90 dark:bg-zinc-950/70"
                 >
-                  <div className="font-mono text-[10px] tracking-[0.14em] text-cyan-700 dark:text-cyan-400">
+                  <div className="font-mono text-[9px] tracking-[0.14em] text-cyan-700 dark:text-cyan-400">
                     {item.layer}
                   </div>
-                  <div className="mt-1 text-sm font-medium text-zinc-950 dark:text-zinc-100">
+                  <div className="mt-0.5 text-xs font-semibold text-zinc-950 dark:text-zinc-100">
                     {item.title}
                   </div>
-                  <div className="mt-1 font-mono text-[11px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  <div className="mt-0.5 font-mono text-[10.5px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                     {item.detail}
                   </div>
                 </div>

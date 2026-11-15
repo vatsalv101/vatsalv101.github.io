@@ -31,6 +31,7 @@ export interface ProjectItem {
   title: string;
   status?: 'Active' | 'Completed';
   badge?: string;
+  problem?: string;
   focus: string;
   architectureNote: string;
   evalOrConstraint: string;
@@ -96,7 +97,7 @@ export const PROFILE = {
   availability: 'Immediate · 20h Werkstudent / 40h Intern',
   statusBadge: 'Open to AI / ML Working Student & Intern Roles',
   positioning:
-    'Building at both ends of the AI stack—from ground-up PyTorch architectures and alignment audits to evaluated, cloud-deployed RAG and agent workflows. Focused on measurable reliability, safety boundaries, and statistical rigor.',
+    'M.Sc. Data Science student at TU Dortmund, focused on deep learning architectures, LLM evaluation, secure RAG systems, and applied machine learning research.',
   coreBadges: [
     'PyTorch',
     'Python',
@@ -132,7 +133,7 @@ export const PILLARS: PillarItem[] = [
     title: 'Model Engineering & Alignment',
     subtitle: 'PyTorch Architectures, Fine-Tuning & Behavioral Evaluation',
     description:
-      'From-scratch PyTorch implementations of research architectures, custom loss formulation, and parameter-efficient adaptation—paired with reasoning audits and statistical learning foundations.',
+      'Implementing deep learning architectures from research papers using PyTorch, including custom training loops, attention mechanisms, optimization algorithms, and parameter-efficient fine-tuning.',
     capabilities: [
       'Transformers & VLMs',
       'Post-Training & LoRA',
@@ -149,7 +150,7 @@ export const PILLARS: PillarItem[] = [
     title: 'Applied AI & Safe Systems',
     subtitle: 'Two-Stage RAG, Agent Workflows & Cloud Evaluation',
     description:
-      'End-to-end AI applications featuring hybrid retrieval, cross-encoder reranking, and tool-calling pipelines—hardened with tenant-isolated access control, RAGAS benchmarks, and Docker/cloud deployment.',
+      'Building practical AI applications using retrieval-augmented generation, agent workflows, vector databases, and systematic evaluation. Focused on reliability, access control, and responsible AI deployment.',
     capabilities: [
       'Two-Stage RAG',
       'Agents & Tool Use',
@@ -171,8 +172,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Remote',
     domain: 'Alignment & Eval',
     highlights: [
-      'Evaluated LLM outputs across frontend code generation, multi-step mathematical reasoning, and tool-calling accuracy against structured RLHF rubrics.',
-      'Audited model responses for PII exposure, sensitive-data leakage, and instruction-following failures to enforce safety standards.',
+      'Evaluated LLM-generated responses across code generation, mathematical reasoning and tool-use tasks using structured evaluation rubrics.',
+      'Identified safety failures, PII exposure, sensitive-data leakage and instruction-following errors.',
     ],
     tags: ['RLHF Rubrics', 'Frontend Eval', 'Math Reasoning', 'Tool-Use Audits', 'PII / Safety'],
   },
@@ -184,8 +185,9 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Ahmedabad, India',
     domain: 'GNSS ML Research',
     highlights: [
-      'Built a proof-of-concept ML pipeline on NavIC GNSS signal data to investigate multipath interference patterns.',
-      'Applied PCA dimensionality reduction, K-Means clustering, and XGBoost classification for feature extraction and signal regime separation.',
+      'Developed a proof-of-concept ML pipeline to investigate multipath interference in NavIC GNSS signals.',
+      'Extracted and analysed signal features including C/N0, elevation angle and pseudorange residuals.',
+      'Explored PCA, K-Means and XGBoost for feature analysis and signal classification.',
     ],
     tags: ['NavIC GNSS', 'XGBoost', 'PCA', 'K-Means', 'Python'],
   },
@@ -210,8 +212,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'India',
     domain: 'Digital Operations',
     highlights: [
-      'Led end-to-end digital transformation for an industrial plastic recycling enterprise, establishing its Google Business Profile, WhatsApp Business workflow, and B2B marketplace listings.',
-      'Managed the company website and digital inventory tracking to modernize product visibility and order operations.',
+      'Established and managed digital business presence across Google Business Profile, WhatsApp Business and B2B marketplaces.',
+      'Developed website and inventory workflows to improve product visibility and operational tracking.',
     ],
     tags: ['Website Management', 'Inventory Systems', 'B2B Listings', 'WhatsApp Business'],
   },
@@ -219,26 +221,13 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'dl-33-scratch-pytorch',
-    category: 'Model Internals',
-    title: 'DL-33: From-Scratch PyTorch Paper Implementations',
-    status: 'Active',
-    badge: '18 Papers · Scratch PyTorch',
-    focus:
-      'Cumulative first-principles PyTorch implementations of milestone deep learning papers (Kaiming Init, AdamW, ResNet, U-Net, Transformer, RoPE, GPT-2 + KV-Cache, LoRA, ViT, DETR, Mamba) built progressively from custom layer primitives without high-level wrappers.',
-    architectureNote:
-      'Built bottom-up leaf tensor blocks (torch.einsum) with zero forward references, explicit assert_shape_contract tracing, and shared core/ primitives exported only after passing sanity checks.',
-    evalOrConstraint:
-      'Gated by a 6-step verification pipeline: surgical derivation, tensor shape contracts, automated audit_gradients checks, and single-batch overfit gates via pytest.',
-    tech: ['PyTorch', 'Python', 'NumPy', 'pytest', 'uv'],
-    repoUrl: 'https://github.com/vatsalv101/DL-33',
-  },
-  {
     id: 'eu-ai-act-rag',
     category: 'AI Governance & Eval',
     title: 'EU AI Act Compliance RAG Assistant',
     status: 'Active',
     badge: 'EN / DE · Regulation 2024/1689',
+    problem:
+      'Answer questions about the EU AI Act using official regulatory documents while preventing unsupported hallucinations and cross-article confusion.',
     focus:
       'Multilingual (English & German) regulatory RAG system over official EU AI Act texts combining structural EUR-Lex parsing, two-stage dense + cross-encoder retrieval, and strict abstention guardrails—achieving 94% RAGAS faithfulness and 100% unanswerable abstention accuracy.',
     architectureNote:
@@ -249,11 +238,45 @@ export const PROJECTS: ProjectItem[] = [
     repoUrl: 'https://github.com/vatsalv101/EU-AI-Act-RAG',
   },
   {
+    id: 'dl-33-scratch-pytorch',
+    category: 'Model Internals',
+    title: 'DL-33: From-Scratch PyTorch Paper Implementations',
+    status: 'Active',
+    badge: '18 Papers · Scratch PyTorch',
+    problem:
+      'Research papers often omit subtle numerical details; ground-up PyTorch re-implementations prove surgical comprehension of attention, gradients, and layer dynamics.',
+    focus:
+      'Cumulative first-principles PyTorch implementations of milestone deep learning papers (Kaiming Init, AdamW, ResNet, U-Net, Transformer, RoPE, GPT-2 + KV-Cache, LoRA, ViT, DETR, Mamba) built progressively from custom layer primitives without high-level wrappers.',
+    architectureNote:
+      'Built bottom-up leaf tensor blocks (torch.einsum) with zero forward references, explicit assert_shape_contract tracing, and shared core/ primitives exported only after passing sanity checks.',
+    evalOrConstraint:
+      'Gated by a 6-step verification pipeline: surgical derivation, tensor shape contracts, automated audit_gradients checks, and single-batch overfit gates via pytest.',
+    tech: ['PyTorch', 'Python', 'NumPy', 'pytest', 'uv'],
+    repoUrl: 'https://github.com/vatsalv101/DL-33',
+  },
+  {
+    id: 'gnss-multipath-isro',
+    category: 'Signal ML Research',
+    title: 'GNSS NavIC Multipath Detection (ML PoC)',
+    badge: 'ISRO SAC',
+    problem:
+      'Multipath reflections distort satellite positioning signals in urban environments, requiring machine learning feature separation on raw observables.',
+    focus:
+      'Proof-of-concept machine learning pipeline engineering C/N0, elevation angle, and pseudorange residual features to classify line-of-sight vs. multipath reception on NavIC signals.',
+    architectureNote:
+      'Extracted raw NavIC signal observables into PCA dimensionality reduction and K-Means clustering representations, feeding supervised XGBoost classifiers for multipath discrimination.',
+    evalOrConstraint:
+      'Evaluated offline feature importance across varied satellite elevation angles and signal-to-noise regimes to validate discriminative boundaries prior to target-hardware deployment.',
+    tech: ['Python', 'XGBoost', 'PCA', 'K-Means', 'Scikit-learn'],
+  },
+  {
     id: 'rbac-vector-rag',
     category: 'AI Security & Retrieval',
     title: 'RBAC RAG: Tenant-Isolated Enterprise Vector Search',
     status: 'Active',
     badge: 'Tenant-Isolated RAG',
+    problem:
+      'Prompt-only access control in RAG fails against prompt extraction; enterprise security requires deterministic pre-filtering at the vector database query layer.',
     focus:
       'Role-Based Access Control RAG architecture enforcing cryptographic JWT role verification and strict metadata vector pre-filtering before similarity search to prevent cross-tenant context leakage.',
     architectureNote:
@@ -264,36 +287,12 @@ export const PROJECTS: ProjectItem[] = [
     repoUrl: 'https://github.com/vatsalv101/RBAC',
   },
   {
-    id: 'gnss-multipath-isro',
-    category: 'Signal ML Research',
-    title: 'GNSS NavIC Multipath Detection (ML PoC)',
-    badge: 'ISRO SAC',
-    focus:
-      'Proof-of-concept machine learning pipeline engineering C/N0, elevation angle, and pseudorange residual features to classify line-of-sight vs. multipath reception on NavIC signals.',
-    architectureNote:
-      'Extracted raw NavIC signal observables into PCA dimensionality reduction and K-Means clustering representations, feeding supervised XGBoost classifiers for multipath discrimination.',
-    evalOrConstraint:
-      'Evaluated offline feature importance across varied satellite elevation angles and signal-to-noise regimes to validate discriminative boundaries prior to target-hardware deployment.',
-    tech: ['Python', 'XGBoost', 'PCA', 'K-Means', 'Scikit-learn'],
-  },
-  {
-    id: 'maze-navigator',
-    category: 'Embedded Robotics',
-    title: 'Intellimaze: Autonomous Robotic Maze Navigator',
-    badge: 'GUJCOST Grant Project',
-    focus:
-      'Real-time edge control routines, sensor integration (VL53L0X Time-of-Flight), and low-latency motor driving under hardware constraints.',
-    architectureNote:
-      'Engineered deterministic C++ control loops sampling multi-axis VL53L0X Time-of-Flight distance arrays to drive dual H-bridge actuators via DRV8833.',
-    evalOrConstraint:
-      'Tightly constrained microcontroller memory, deterministic sensor polling cadence, and closed-loop wall-centering stability.',
-    tech: ['Embedded C++', 'DRV8833', 'VL53L0X ToF', 'Control Loops'],
-  },
-  {
     id: 'agentic-eval-pipelines',
     category: 'Safety & Agentic AI',
     title: 'Stateful Agent & Trajectory Evaluation Pipeline',
     badge: 'LangGraph · Rubric Evals',
+    problem:
+      'Autonomous LLM agent workflows suffer from tool hallucination and multi-hop reasoning drift without state-graph control and rubric audits.',
     focus:
       'Multi-step tool-calling agent workflows built with state-graph orchestration, Pydantic schema validation, and automated rubric-based output and reasoning audits.',
     architectureNote:
@@ -301,6 +300,21 @@ export const PROJECTS: ProjectItem[] = [
     evalOrConstraint:
       'Automated grading harnesses evaluate tool-call precision, multi-hop reasoning drift, and instruction hierarchy compliance within containerized sandbox environments.',
     tech: ['Python', 'LangGraph', 'Pydantic', 'TypeScript', 'Docker'],
+  },
+  {
+    id: 'maze-navigator',
+    category: 'Embedded Robotics',
+    title: 'Intellimaze: Autonomous Robotic Maze Navigator',
+    badge: 'GUJCOST Grant Project',
+    problem:
+      'Autonomous micro-robotics requires deterministic real-time wall detection and motor actuation under tight microcontroller memory constraints.',
+    focus:
+      'Real-time edge control routines, sensor integration (VL53L0X Time-of-Flight), and low-latency motor driving under hardware constraints.',
+    architectureNote:
+      'Engineered deterministic C++ control loops sampling multi-axis VL53L0X Time-of-Flight distance arrays to drive dual H-bridge actuators via DRV8833.',
+    evalOrConstraint:
+      'Tightly constrained microcontroller memory, deterministic sensor polling cadence, and closed-loop wall-centering stability.',
+    tech: ['Embedded C++', 'DRV8833', 'VL53L0X ToF', 'Control Loops'],
   },
 ];
 
@@ -380,7 +394,7 @@ export const STACK_COLUMNS: StackColumn[] = [
         label: 'Cloud, Containers & Testing',
         skills: [
           'Docker',
-          'AWS (EC2, S3, Lambda, Bedrock)',
+          'AWS (EC2, S3)',
           'Oracle OCI',
           'pytest',
         ],
@@ -405,13 +419,12 @@ export const EDUCATION: EducationItem[] = [
     institution: 'Technische Universität Dortmund',
     location: 'Dortmund, Germany',
     period: '2025 - Expected 2028',
-    metric: '1.5 German GPA',
+    metric: 'Current GPA: 1.5 (German Scale)',
     coursework: [
       'Statistical Theory',
-      'Inference',
+      'Advanced Statistical Learning',
       'Programming Deep Learning',
       'Natural Language Processing',
-      'Advanced Statistical Learning',
     ],
   },
   {

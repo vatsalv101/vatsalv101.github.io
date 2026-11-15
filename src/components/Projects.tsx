@@ -61,9 +61,18 @@ export function Projects() {
                 {project.title}
               </h3>
 
+              {project.problem ? (
+                <div className="mt-2.5 rounded-md border border-zinc-200/70 bg-zinc-100/60 p-2.5 text-xs leading-relaxed text-zinc-700 dark:border-zinc-800/60 dark:bg-zinc-950/60 dark:text-zinc-300">
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                    Problem ·{' '}
+                  </span>
+                  {project.problem}
+                </div>
+              ) : null}
+
               <p className="mt-2.5 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-                <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
-                  Focus:{' '}
+                <span className="font-mono text-xs font-medium uppercase tracking-wider text-cyan-700 dark:text-cyan-400">
+                  Solution ·{' '}
                 </span>
                 {project.focus}
               </p>

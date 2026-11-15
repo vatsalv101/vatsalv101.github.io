@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Mail, Terminal } from 'lucide-react';
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
 import { PROFILE } from '../data/portfolio';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import { SectionHeader } from './SectionHeader';
@@ -21,221 +21,150 @@ export function Footer() {
     <footer id="contact" className="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 lg:px-8">
       <SectionHeader
         index="06"
-        title="Contact & Links"
-        subtitle="Available immediately for 20h/wk Working Student or 40h/wk Mandatory Internship roles across Germany and remote."
-        meta="DORTMUND, DE"
+        title="Contact & Opportunities"
+        subtitle="Open to Working Student (20h/wk) and Internship (40h/wk) roles in Machine Learning, AI Engineering, and Applied Research across Germany and remote."
       />
 
-      <div className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50/80 dark:border-zinc-800 dark:bg-zinc-900/45">
-        {/* Desktop-only Terminal Title Bar */}
-        <div className="hidden items-center justify-between border-b border-zinc-200 bg-zinc-100/80 px-4 py-2.5 dark:border-zinc-800 dark:bg-zinc-950/70 md:flex">
-          <div className="flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400">
-            <Terminal className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" />
-            <span>vatsal@tu-dortmund:~/portfolio</span>
-          </div>
-          <span className="font-mono text-[11px] text-zinc-500">
-            contact.json
-          </span>
-        </div>
+      {/* Modern, Clean Contact Card — No terminal gimmick */}
+      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50/70 p-6 shadow-sm dark:border-zinc-800 dark:from-zinc-900/90 dark:to-zinc-950/70 sm:p-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+          
+          {/* Left Column: Value Proposition & Key Details */}
+          <div className="lg:col-span-7">
+            {/* Live Status Pill */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-50/80 px-3 py-1 text-xs font-medium text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span>Available for Roles · Immediate Start</span>
+            </div>
 
-        {/* Desktop Layout: Terminal JSON on Left + Action Buttons on Right */}
-        <div className="hidden p-6 md:grid md:grid-cols-12 md:items-center md:gap-6">
-          <div className="min-w-0 font-mono text-xs leading-6 text-zinc-700 dark:text-zinc-300 md:col-span-7">
-            <div className="text-zinc-500">$ cat contact.json</div>
-            <div className="mt-2 rounded-md border border-zinc-200 bg-white p-4 dark:border-zinc-800/80 dark:bg-zinc-950/80">
-              <div className="text-zinc-400 dark:text-zinc-500">{'{'}</div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;name&quot;</span>:{' '}
-                <span className="text-zinc-800 dark:text-zinc-200">&quot;{PROFILE.name}&quot;</span>,
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-2xl">
+              Let&apos;s build reliable, production-ready AI systems together.
+            </h3>
+
+            <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              Whether you are looking for an engineer to implement research architectures in PyTorch, design secure RAG pipelines, or build evaluated agent workflows, I would love to connect.
+            </p>
+
+            {/* Structured Info Grid */}
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-800/80 dark:bg-zinc-900/60">
+                <GraduationCap className="h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400" />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Degree &amp; Univ</div>
+                  <div className="truncate text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+                    M.Sc. Data Science · TU Dortmund
+                  </div>
+                </div>
               </div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;location&quot;</span>:{' '}
-                <span className="text-zinc-800 dark:text-zinc-200">&quot;{PROFILE.location}&quot;</span>,
+
+              <div className="flex items-center gap-3 rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-800/80 dark:bg-zinc-900/60">
+                <MapPin className="h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400" />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Location &amp; Work</div>
+                  <div className="truncate text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+                    Dortmund, Germany · Hybrid / Remote
+                  </div>
+                </div>
               </div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;availability&quot;</span>:{' '}
-                <span className="text-zinc-800 dark:text-zinc-200">
-                  &quot;{PROFILE.availability}&quot;
-                </span>
-                ,
+
+              <div className="flex items-center gap-3 rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-800/80 dark:bg-zinc-900/60">
+                <Briefcase className="h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400" />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Work Model</div>
+                  <div className="truncate text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+                    20h Werkstudent · 40h Intern
+                  </div>
+                </div>
               </div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;email&quot;</span>:{' '}
-                <a
-                  href={`mailto:${PROFILE.links.email}`}
-                  className="break-all text-zinc-950 underline decoration-zinc-300 underline-offset-4 hover:text-cyan-700 dark:text-zinc-100 dark:decoration-zinc-700 dark:hover:text-cyan-300"
-                >
-                  &quot;{PROFILE.links.email}&quot;
-                </a>
-                ,
+
+              <div className="flex items-center gap-3 rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-800/80 dark:bg-zinc-900/60">
+                <Calendar className="h-4 w-4 shrink-0 text-cyan-700 dark:text-cyan-400" />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Response Cadence</div>
+                  <div className="truncate text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+                    Direct reply within 24 hours
+                  </div>
+                </div>
               </div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;github&quot;</span>:{' '}
-                <a
-                  href={PROFILE.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="break-all text-zinc-950 underline decoration-zinc-300 underline-offset-4 hover:text-cyan-700 dark:text-zinc-100 dark:decoration-zinc-700 dark:hover:text-cyan-300"
-                >
-                  &quot;{PROFILE.links.github}&quot;
-                </a>
-                ,
-              </div>
-              <div className="pl-4">
-                <span className="text-cyan-700 dark:text-cyan-400">&quot;linkedin&quot;</span>:{' '}
-                <a
-                  href={PROFILE.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="break-all text-zinc-950 underline decoration-zinc-300 underline-offset-4 hover:text-cyan-700 dark:text-zinc-100 dark:decoration-zinc-700 dark:hover:text-cyan-300"
-                >
-                  &quot;{PROFILE.links.linkedin}&quot;
-                </a>
-              </div>
-              <div className="text-zinc-400 dark:text-zinc-500">{'}'}</div>
             </div>
           </div>
 
-          <div className="flex min-w-0 flex-col gap-3 md:col-span-5">
+          {/* Right Column: High-conversion Action CTAs */}
+          <div className="flex flex-col gap-3 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 lg:col-span-5">
+            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              Direct Contact
+            </span>
+
+            {/* Send Email Button */}
             <a
               href={`mailto:${PROFILE.links.email}`}
-              className="flex items-center justify-between rounded-md bg-zinc-950 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cyan-700 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-cyan-300"
+              className="flex items-center justify-between rounded-lg bg-zinc-950 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-cyan-700 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-cyan-300"
             >
-              <span className="inline-flex items-center gap-2">
+              <span className="inline-flex items-center gap-2.5">
                 <Mail className="h-4 w-4" />
-                Send Email
+                <span>Send Email</span>
               </span>
               <ArrowUpRight className="h-4 w-4" />
             </a>
 
+            {/* One-click Copy Email Button */}
             <button
               type="button"
               onClick={handleCopyEmail}
-              className="flex min-w-0 cursor-pointer items-center justify-between rounded-md border border-zinc-300 bg-white px-4 py-2.5 font-mono text-xs text-zinc-800 transition-colors hover:border-cyan-600/50 hover:text-cyan-700 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-200 dark:hover:border-cyan-500/50 dark:hover:text-cyan-300"
+              className="flex cursor-pointer items-center justify-between rounded-lg border border-zinc-300 bg-zinc-50/60 px-4 py-2.5 text-xs font-medium text-zinc-800 transition-colors hover:border-cyan-600/50 hover:bg-white hover:text-cyan-700 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:border-cyan-500/50 dark:hover:bg-zinc-900 dark:hover:text-cyan-300"
             >
               <span className="inline-flex min-w-0 items-center gap-2">
                 {copied ? (
-                  <Check className="h-3.5 w-3.5 shrink-0 text-cyan-700 dark:text-cyan-400" />
+                  <Check className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
                 ) : (
-                  <Copy className="h-3.5 w-3.5 shrink-0 text-zinc-500 dark:text-zinc-400" />
+                  <Copy className="h-4 w-4 shrink-0 text-zinc-500 dark:text-zinc-400" />
                 )}
-                <span className="truncate">
-                  {copied ? 'Copied email to clipboard' : `Copy ${PROFILE.links.email}`}
+                <span className="truncate font-mono">
+                  {copied ? 'Copied to clipboard!' : PROFILE.links.email}
                 </span>
+              </span>
+              <span className="shrink-0 text-[11px] text-zinc-500 dark:text-zinc-400">
+                {copied ? 'Done' : 'Copy'}
               </span>
             </button>
 
-            <div className="grid grid-cols-2 gap-3">
+            {/* Social Network Buttons */}
+            <div className="mt-1 grid grid-cols-2 gap-2.5">
               <a
                 href={PROFILE.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-xs font-semibold text-zinc-800 transition-colors hover:border-zinc-400 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:text-zinc-50"
               >
-                <GithubIcon className="h-3.5 w-3.5" />
-                GitHub
-                <ArrowUpRight className="h-3 w-3 text-zinc-400 dark:text-zinc-500" />
+                <GithubIcon className="h-4 w-4" />
+                <span>GitHub</span>
+                <ArrowUpRight className="h-3 w-3 text-zinc-400" />
               </a>
 
               <a
                 href={PROFILE.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-xs font-semibold text-zinc-800 transition-colors hover:border-zinc-400 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:text-zinc-50"
               >
-                <LinkedinIcon className="h-3.5 w-3.5" />
-                LinkedIn
-                <ArrowUpRight className="h-3 w-3 text-zinc-400 dark:text-zinc-500" />
+                <LinkedinIcon className="h-4 w-4 text-[#0A66C2]" />
+                <span>LinkedIn</span>
+                <ArrowUpRight className="h-3 w-3 text-zinc-400" />
               </a>
             </div>
-          </div>
-        </div>
 
-        {/* Mobile Layout: Clean, Human-Readable UI with zero terminal syntax */}
-        <div className="space-y-4 p-5 md:hidden">
-          <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-            <div className="flex items-center justify-between border-b border-zinc-100 pb-3 dark:border-zinc-800/80">
-              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 dark:text-cyan-400">
-                <span className="h-2 w-2 rounded-full bg-cyan-600 dark:bg-cyan-400" />
-                Open for Roles
-              </span>
-              <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Dortmund, Germany</span>
+            <div className="mt-1 text-center text-[11px] text-zinc-500 dark:text-zinc-500">
+              Primary inbox: <span className="font-mono text-zinc-700 dark:text-zinc-300">{PROFILE.links.email}</span>
             </div>
-
-            <div className="mt-3 space-y-2 text-xs">
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="text-zinc-500">Name</span>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100">{PROFILE.name}</span>
-              </div>
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="text-zinc-500">Affiliation</span>
-                <span className="text-zinc-800 dark:text-zinc-200">{PROFILE.affiliation}</span>
-              </div>
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="text-zinc-500">Availability</span>
-                <span className="text-right font-medium text-zinc-900 dark:text-zinc-100">{PROFILE.availability}</span>
-              </div>
-              <div className="flex items-baseline justify-between gap-2 border-t border-zinc-100 pt-2 dark:border-zinc-800/80">
-                <span className="text-zinc-500">Email</span>
-                <a
-                  href={`mailto:${PROFILE.links.email}`}
-                  className="font-medium text-cyan-700 hover:underline dark:text-cyan-400"
-                >
-                  {PROFILE.links.email}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href={`mailto:${PROFILE.links.email}`}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-950 py-3 text-sm font-medium text-white transition-colors hover:bg-cyan-700 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-cyan-300"
-          >
-            <Mail className="h-4 w-4" />
-            <span>Send Email</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-
-          <button
-            type="button"
-            onClick={handleCopyEmail}
-            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white py-2.5 text-xs font-medium text-zinc-800 transition-colors hover:border-cyan-600/50 hover:text-cyan-700 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-200 dark:hover:border-cyan-500/50 dark:hover:text-cyan-300"
-          >
-            {copied ? (
-              <Check className="h-3.5 w-3.5 text-cyan-700 dark:text-cyan-400" />
-            ) : (
-              <Copy className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
-            )}
-            <span>{copied ? 'Copied to clipboard' : `Copy ${PROFILE.links.email}`}</span>
-          </button>
-
-          <div className="grid grid-cols-2 gap-3 pt-1">
-            <a
-              href={PROFILE.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white py-2.5 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
-            >
-              <GithubIcon className="h-3.5 w-3.5" />
-              <span>GitHub</span>
-              <ArrowUpRight className="h-3 w-3 text-zinc-400 dark:text-zinc-500" />
-            </a>
-
-            <a
-              href={PROFILE.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white py-2.5 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
-            >
-              <LinkedinIcon className="h-3.5 w-3.5" />
-              <span>LinkedIn</span>
-              <ArrowUpRight className="h-3 w-3 text-zinc-400 dark:text-zinc-500" />
-            </a>
           </div>
         </div>
       </div>
 
-      <div className="no-print mt-10 flex flex-col items-start justify-between gap-2.5 border-t border-zinc-200 pt-6 font-mono text-xs text-zinc-500 sm:flex-row sm:items-center dark:border-zinc-900">
+      {/* Sub-footer copyright and accessibility shortcuts */}
+      <div className="no-print mt-10 flex flex-col items-start justify-between gap-2.5 border-t border-zinc-200 pt-6 text-xs text-zinc-500 sm:flex-row sm:items-center dark:border-zinc-900">
         <span>
           © 2026 {PROFILE.name} · {PROFILE.affiliation}
         </span>
